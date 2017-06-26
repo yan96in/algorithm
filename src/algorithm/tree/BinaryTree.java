@@ -71,6 +71,35 @@ public class BinaryTree {
 	}
 	
 	//return the parent of node
+	public BinaryTreeNode getParent(BinaryTreeNode node){
+		return (root==null||root==node)?null:getParent(root,node);
+	}
+	
+	//return  the parent of node at the given subTree
+	public BinaryTreeNode getParent(BinaryTreeNode subTree,BinaryTreeNode node){
+		if(subTree==null){
+			return null;
+		}
+		if(subTree.getLeftChild()==node||subTree.getRightChild()==node){
+			return subTree;
+		}
+		BinaryTreeNode parent=null;
+		if((parent=getParent(subTree.getLeftChild(),node))!=null){
+			return parent;
+		}else{
+			return getParent(subTree.getRightChild(),node);
+		}
+	}
+	
+	//return left tree of node
+	public BinaryTreeNode getLeftTree(BinaryTreeNode node){
+		return node.getLeftChild();
+	}
+	
+	//return right tree of node
+	public BinaryTreeNode getRigthTree(BinaryTreeNode node){
+		return node.getRightChild();
+	}
 }
 
 class BinaryTreeNode {
