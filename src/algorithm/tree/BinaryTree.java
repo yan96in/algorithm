@@ -100,6 +100,43 @@ public class BinaryTree {
 	public BinaryTreeNode getRigthTree(BinaryTreeNode node){
 		return node.getRightChild();
 	}
+	
+	//insert left child node
+	public void insertLeft(BinaryTreeNode parent,BinaryTreeNode newNode){
+		parent.setLeftChild(newNode);
+	}
+	
+	//insert right child node
+	public void insertRight(BinaryTreeNode parent,BinaryTreeNode newNode){
+		parent.setRightChild(newNode);
+	}
+	
+	// preorder 
+	public void preOrder(BinaryTreeNode node){
+		if(node!=null){
+			//visted(node);
+			preOrder(node.getLeftChild());
+			preOrder(node.getRightChild());
+		}
+	}
+	
+	//inorder 
+	public void inOrder(BinaryTreeNode node){
+		if(node!=null){
+			inOrder(node.getLeftChild());
+			//visted(node);
+			inOrder(node.getRightChild());
+		}
+	}
+	
+	//postorder
+	public void postOrder(BinaryTreeNode node){
+		if(node!=null){
+			postOrder(node.getLeftChild());
+			postOrder(node.getRightChild());
+			//visted(node);
+		}
+	}
 }
 
 class BinaryTreeNode {
